@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -8,16 +9,23 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
-      hash: true,
     }),
   ],
   output: {
-    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",
     clean: true,
   },
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
