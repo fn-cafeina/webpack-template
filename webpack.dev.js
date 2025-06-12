@@ -7,8 +7,6 @@ module.exports = merge(common, {
   devtool: "eval-source-map",
   devServer: {
     open: true,
-    hot: true,
-    compress: true,
     watchFiles: ["./index.html"],
     client: {
       overlay: true,
