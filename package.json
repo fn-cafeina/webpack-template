@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
